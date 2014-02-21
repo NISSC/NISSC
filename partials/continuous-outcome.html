@@ -57,3 +57,19 @@
         </div>
     </div>
 </form>
+<div class="well" ng-show="controlGroupSampleSize">
+    <p class="text-success">
+        <strong>Sample size of control group: {{controlGroupSampleSize | number:0}}</strong>
+    </p>
+    <p class="text-success">
+        <strong>Sample size of experimental group: {{experimentalGroupSampleSize | number:0}}</strong>
+    </p>
+    <p class="text-success">
+        If there is truly no difference between the standard and experimental
+        treatment, then {{controlGroupSampleSize | number:0}} patients are
+        required to be {{values.power * 100 | number:0}}% sure that the lower
+        limit of a one-sided {{values.significanceLevel * 100 | number:0}}%
+        confidence interval will be above the non-inferiority limit of
+        {{values.niMargin}}.
+    </p>
+</div>
