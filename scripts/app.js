@@ -6,7 +6,7 @@
     app = angular.module("app", ["ngRoute"]);
 
     app.config(function ($locationProvider, $routeProvider) {
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(false).hashPrefix("!");
         $routeProvider.when("/continuous", {
             templateUrl: "partials/continuous-outcome.html",
             controller: "ContinuousOutcomeController"
