@@ -1,75 +1,79 @@
-<form class="form-horizontal" role="form">
-    <div class="form-group">
-        <label for="significance-level" class="col-sm-2 control-label">Significance level (one-sided)</label>
-        <div class="col-sm-10">
-            <select class="form-control" ng-model="values.significanceLevel">
-                <option value="0.1">0.1</option>
-                <option value="0.05">0.05</option>
-                <option value="0.025" selected>0.025</option>
-                <option value="0.005">0.005</option>
-            </select>
+<div class="col-md-6">
+</div>
+<div class="col-md-6">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="significance-level" class="col-sm-2 control-label">Significance level (one-sided)</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="values.significanceLevel">
+                    <option value="0.1">0.1</option>
+                    <option value="0.05">0.05</option>
+                    <option value="0.025" selected>0.025</option>
+                    <option value="0.005">0.005</option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="power" class="col-sm-2 control-label">Power</label>
-        <div class="col-sm-10">
-            <select class="form-control" ng-model="values.power">
-                <option value="0.8">0.8</option>
-                <option value="0.85">0.85</option>
-                <option value="0.9" selected>0.9</option>
-                <option value="0.95">0.95</option>
-            </select>
+        <div class="form-group">
+            <label for="power" class="col-sm-2 control-label">Power</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="values.power">
+                    <option value="0.8">0.8</option>
+                    <option value="0.85">0.85</option>
+                    <option value="0.9" selected>0.9</option>
+                    <option value="0.95">0.95</option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Ratio of allocation</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" ng-model="values.allocationRatio">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Ratio of allocation</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="values.allocationRatio">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Mean in experimental group</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" ng-model="values.meanExperimentalGroup">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Mean in experimental group</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="values.meanExperimentalGroup">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Mean in control group</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" ng-model="values.meanControlGroup">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Mean in control group</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="values.meanControlGroup">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Common standard deviation</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" ng-model="values.commonStandardDeviation">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Common standard deviation</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="values.commonStandardDeviation">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Non-inferiority margin</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" ng-model="values.niMargin">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Non-inferiority margin</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="values.niMargin">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" ng-click="calculate(values)">Calculate</button>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" ng-click="calculate(values)">Calculate</button>
+            </div>
         </div>
+    </form>
+    <div class="well" ng-show="controlGroupSampleSize">
+        <p class="text-success">
+            <strong>Sample size of control group: {{controlGroupSampleSize | number:0}}</strong>
+        </p>
+        <p class="text-success">
+            <strong>Sample size of experimental group: {{experimentalGroupSampleSize | number:0}}</strong>
+        </p>
+        <p class="text-success">
+            If there is truly no difference between the standard and experimental
+            treatment, then {{controlGroupSampleSize | number:0}} patients are
+            required to be {{values.power * 100 | number:0}}% sure that the lower
+            limit of a one-sided {{values.significanceLevel * 100 | number:0}}%
+            confidence interval will be above the non-inferiority limit of
+            {{values.niMargin}}.
+        </p>
     </div>
-</form>
-<div class="well" ng-show="controlGroupSampleSize">
-    <p class="text-success">
-        <strong>Sample size of control group: {{controlGroupSampleSize | number:0}}</strong>
-    </p>
-    <p class="text-success">
-        <strong>Sample size of experimental group: {{experimentalGroupSampleSize | number:0}}</strong>
-    </p>
-    <p class="text-success">
-        If there is truly no difference between the standard and experimental
-        treatment, then {{controlGroupSampleSize | number:0}} patients are
-        required to be {{values.power * 100 | number:0}}% sure that the lower
-        limit of a one-sided {{values.significanceLevel * 100 | number:0}}%
-        confidence interval will be above the non-inferiority limit of
-        {{values.niMargin}}.
-    </p>
 </div>
