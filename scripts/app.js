@@ -7,7 +7,9 @@
 
     app.config(function ($locationProvider, $routeProvider) {
         $locationProvider.html5Mode(false).hashPrefix("!");
-        $routeProvider.when("/continuous", {
+        $routeProvider.when("/introduction", {
+            templateUrl: "partials/introduction.html"
+        }).when("/continuous", {
             templateUrl: "partials/continuous-outcome.html",
             controller: "ContinuousOutcomeController"
         }).when("/binary", {
@@ -17,7 +19,7 @@
             templateUrl: "partials/survival-outcome.html",
             controller: "SurvivalOutcomeController"
         }).otherwise({
-            redirectTo: "/continuous"
+            redirectTo: "/introduction"
         });
     });
 
