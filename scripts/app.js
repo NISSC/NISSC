@@ -53,6 +53,9 @@
             },
             calculateForContinuousOutcome: function (a, b, k, me, mc, sd, d) {
                 return (1 + (1 / k)) * Math.pow(a + b, 2) * Math.pow(sd / (me - mc - d), 2);
+            },
+            calculateForBinaryOutcome: function (a, b, k, pe, pc, d) {
+                return Math.pow((b * Math.sqrt(((pe * (1 - pe)) / k) + (pc * (1 - pc))) + a * Math.sqrt(((pe * (1 - pe)) / k) + (pc * (1 - pc)))) / (pe - pc + d), 2);
             }
         };
     });
@@ -72,7 +75,18 @@
         };
     });
 
-    app.controller("BinaryOutcomeController", function ($scope) {
+    app.controller("BinaryOutcomeController", function ($scope, Calculator) {
+        $scope.calculate = function (values) {
+            var a, b, k, ee, ec,  d;
+            a = Calculator.standardizeSignificanceLevel(parseFloat(values.significanceLevel));
+            b = Calculator.standardizePower(parseFloat(values.power));
+            k = parseFloat(values.allocationRatio);
+            ee = parseFloat(values.eventRateExperimentalGroup);
+            ec = parseFloat(values.eventRateControlGroup);
+            d = parseFloat(values.niMargin);
+            $scope.controlGroupSampleSize = Calculator.calculateForBinaryOutcome(a, b, k, ee, ec, d);
+            $scope.experimentalGroupSampleSize = $scope.controlGroupSampleSize * k;
+        };
     });
 
     app.controller("SurvivalOutcomeController", function ($scope) {
