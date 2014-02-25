@@ -78,4 +78,10 @@
     app.controller("SurvivalOutcomeController", function ($scope) {
     });
 
+    app.controller("NavigationController", function ($scope, $location) {
+        $scope.isActive = function (viewLocation) {
+            return viewLocation === $location.path();
+        };
+    });
+
 }());
