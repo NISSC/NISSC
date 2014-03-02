@@ -78,5 +78,20 @@
         <p class="text-success">
             <strong>Sample size of standard group: {{controlGroupSampleSize | number:0}}</strong>
         </p>
+        <p class="text-success">
+            <strong>Sample size of experimental group: {{experimentalGroupSampleSize | number:0}}</strong>
+        </p>
+        <p class="text-success">
+            Under the assumptions of proportional hazard and non-informative
+            censoring, a non-inferiority trial is designed to show that a new
+            treatment is non-inferior to the standard treatment within a
+            non-inferiority margin of {{values.niMargin}} in terms of hazard
+            ratio.  {{totalSampleSize | number:0}} subjects in total (of which
+            {{experimentalGroupSampleSize | number:0}} are in the new treatment
+            group and {{controlGroupSampleSize | number:0}} are in the standard
+            treatment group) and {{expectedEvents | number:0}} of event are
+            required to achieve {{values.power * 100 | number:0}}% of power at
+            a {{values.significanceLevel}} significance level.
+        </p>
     </div>
 </div>

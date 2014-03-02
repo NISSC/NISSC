@@ -101,7 +101,10 @@
             pe = parseFloat(values.probEventExperimentalGroup);
             pc = parseFloat(values.probEventControlGroup);
             d = parseFloat(values.niMargin);
-            $scope.controlGroupSampleSize = Calculator.calculateForSurvivalOutcome(a, b, prope, pe, pc, d);
+            $scope.totalSampleSize = Calculator.calculateForSurvivalOutcome(a, b, prope, pe, pc, d);
+            $scope.experimentalGroupSampleSize = $scope.totalSampleSize * prope;
+            $scope.controlGroupSampleSize = $scope.totalSampleSize * (1 - prope);
+            $scope.expectedEvents = $scope.totalSampleSize * ((1 - prope) * pc + prope * pe);
         };
     });
 
