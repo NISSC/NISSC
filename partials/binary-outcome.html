@@ -10,10 +10,10 @@
         <ul>
             <li><strong>One-sided significance level:</strong> The probability of choosing the alternative hypothesis when the null hypothesis is true (bad decision)</li>
             <li><strong>Target power:</strong> The probability of choosing the alternative hypothesis when the alternative hypothesis is true (good decision)</li>
-            <li><strong>Allocation ratio</strong> (number of subjects in experimental group)/(number of subjects in control group)</li>
-            <li><strong>Assumed event rate in experimental group</strong></li>
-            <li><strong>Assumed event rate in control group</strong></li>
-            <li><strong>Non-inferiority margin:</strong> "the largest difference that is clinically acceptable"</li>
+            <li><strong>Allocation ratio</strong> (number of subjects in experimental group)/(number of subjects in standard group)</li>
+            <li><strong>Assumed event rate in experimental group:</strong> the value should be between 0 and 1</li>
+            <li><strong>Assumed event rate in standard group:</strong> the value should be between 0 and 1</li>
+            <li><strong>Non-inferiority margin:</strong> the largest difference in the difference of means that is clinically acceptable</li>
         </ul>
         <h3>Reference</h3>
         <p>M. D. Rothmann, B. L. Wiens, and I. S. F. Chan, Design and Analysis of Non-Inferiority Trials. CRC Press, 2008, p. 268-271</p>
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-9 control-label">Assumed event rate in control group</label>
+            <label class="col-sm-9 control-label">Assumed event rate in standard group</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="values.eventRateControlGroup">
             </div>
@@ -75,7 +75,7 @@
     </form>
     <div class="well" ng-show="controlGroupSampleSize">
         <p class="text-success">
-            <strong>Sample size of control group: {{controlGroupSampleSize | number:0}}</strong>
+            <strong>Sample size of standard group: {{controlGroupSampleSize | number:0}}</strong>
         </p>
         <p class="text-success">
             <strong>Sample size of experimental group: {{experimentalGroupSampleSize | number:0}}</strong>

@@ -11,11 +11,11 @@
         <ul>
             <li><strong>One-sided significance level:</strong> The probability of choosing the alternative hypothesis when the null hypothesis is true (bad decision)</li>
             <li><strong>Target power:</strong> The probability of choosing the alternative hypothesis when the alternative hypothesis is true (good decision)</li>
-            <li><strong>Proportion of experimental group in total sample size (Prop<sub>C</sub>)</strong></li>
-            <li><strong>Proportion of control group in total sample size (Prop<sub>E</sub>)</strong></li>
-            <li><strong>Probability of observing an event in experimental group (p<sub>C</sub>)</strong></li>
-            <li><strong>Probability of observing an event in control group (p<sub>E</sub>)</strong></li>
-            <li><strong>Non-inferiority margin:</strong> "the largest difference that is clinically acceptable"</li>
+            <li><strong>Proportion of experimental group in total sample size</strong></li>
+            <li><strong>Proportion of standard group in total sample size</strong></li>
+            <li><strong>Probability of observing an event in experimental group:</strong> the value should be between 0 and 1</li>
+            <li><strong>Probability of observing an event in standard group:</strong> the value should be between 0 and 1</li>
+            <li><strong>Non-inferiority margin:</strong> the largest difference in the difference of means that is clinically acceptable</li>
         </ul>
         <h3>Reference</h3>
         <p>S.C. Chow, H. Wang, and J. Shao, Sample Size Calculations in Clinical Research, Second Edition. CRC Press, 2007, p. 174-179</p>
@@ -46,25 +46,25 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-9 control-label">Proportion of experimental group in total sample size (Prop<sub>C</sub>)</label>
+            <label class="col-sm-9 control-label">Proportion of experimental group in total sample size</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="values.propExperimentalGroup">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-9 control-label">Proportion of control group in total sample size (Prop<sub>E</sub>)</label>
+            <label class="col-sm-9 control-label">Proportion of standard group in total sample size</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="values.propControlGroup">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-9 control-label">Probability of observing an event in experimental group (p<sub>C</sub>)</label>
+            <label class="col-sm-9 control-label">Probability of observing an event in experimental group</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="values.probEventExperimentalGroup">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-9 control-label">Probability of observing an event in control group (p<sub>E</sub>)</label>
+            <label class="col-sm-9 control-label">Probability of observing an event in standard group</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="values.probEventControlGroup">
             </div>
@@ -83,7 +83,7 @@
     </form>
     <div class="well" ng-show="controlGroupSampleSize">
         <p class="text-success">
-            <strong>Sample size of control group: {{controlGroupSampleSize | number:0}}</strong>
+            <strong>Sample size of standard group: {{controlGroupSampleSize | number:0}}</strong>
         </p>
     </div>
 </div>
