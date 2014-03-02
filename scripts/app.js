@@ -57,8 +57,8 @@
             calculateForBinaryOutcome: function (a, b, k, pe, pc, d) {
                 return Math.pow((b * Math.sqrt(((pe * (1 - pe)) / k) + (pc * (1 - pc))) + a * Math.sqrt(((pe * (1 - pe)) / k) + (pc * (1 - pc)))) / (pe - pc + d), 2);
             },
-            calculateForSurvivalOutcome: function (a, b, prope, pe, pc, d) {
-                return Math.pow(a + b, 2) / (Math.pow(d, 2) * (1 - prope) * prope * ((1 - prope) * pc + prope * pe));
+            calculateForSurvivalOutcome: function (a, b, prope, pe, pc, h, d) {
+                return Math.pow(a + b, 2) / (Math.pow(Math.log(h) - Math.log(d), 2) * (1 - prope) * prope * ((1 - prope) * pc + prope * pe));
             }
         };
     });
@@ -94,14 +94,15 @@
 
     app.controller("SurvivalOutcomeController", function ($scope, Calculator) {
         $scope.calculate = function (values) {
-            var a, b, prope, pe, pc, d;
+            var a, b, prope, pe, pc, h, d;
             a = Calculator.standardizeSignificanceLevel(parseFloat(values.significanceLevel));
             b = Calculator.standardizePower(parseFloat(values.power));
             prope = parseFloat(values.propExperimentalGroup);
             pe = parseFloat(values.probEventExperimentalGroup);
             pc = parseFloat(values.probEventControlGroup);
+            h = parseFloat(values.hazardRatio);
             d = parseFloat(values.niMargin);
-            $scope.totalSampleSize = Calculator.calculateForSurvivalOutcome(a, b, prope, pe, pc, d);
+            $scope.totalSampleSize = Calculator.calculateForSurvivalOutcome(a, b, prope, pe, pc, h, d);
             $scope.experimentalGroupSampleSize = $scope.totalSampleSize * prope;
             $scope.controlGroupSampleSize = $scope.totalSampleSize * (1 - prope);
             $scope.expectedEvents = $scope.totalSampleSize * ((1 - prope) * pc + prope * pe);

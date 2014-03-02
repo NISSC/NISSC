@@ -14,7 +14,8 @@
             <li><strong>Proportion of experimental group in total sample size</strong></li>
             <li><strong>Probability of observing an event in experimental group:</strong> the value should be between 0 and 1</li>
             <li><strong>Probability of observing an event in standard group:</strong> the value should be between 0 and 1</li>
-            <li><strong>Non-inferiority margin:</strong> the largest difference in the difference of means that is clinically acceptable</li>
+            <li><strong>Assumed hazard ratio of experimental group and standard group</strong></li>
+            <li><strong>Non-inferiority margin in terms of hazard ratio:</strong> the largest difference in the difference of means that is clinically acceptable</li>
         </ul>
         <h3>Reference</h3>
         <p>S.C. Chow, H. Wang, and J. Shao, Sample Size Calculations in Clinical Research, Second Edition. CRC Press, 2007, p. 174-179</p>
@@ -63,7 +64,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-9 control-label">Non-inferiority margin</label>
+            <label class="col-sm-9 control-label">Assumed hazard ratio of experimental group and standard group</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" ng-model="values.hazardRatio">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-9 control-label">Non-inferiority margin in terms of hazard ratio</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="values.niMargin">
             </div>
