@@ -32,8 +32,8 @@
                     return 1.645;
                 } else if (a === 0.025) {
                     return 1.96;
-                } else if (a === 0.005) {
-                    return 2.576;
+                } else if (a === 0.01) {
+                    return 2.326;
                 } else {
                     throw new Error("Argument invalid.");
                 }
