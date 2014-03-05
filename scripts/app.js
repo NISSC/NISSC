@@ -89,6 +89,7 @@
             d = parseFloat(values.niMargin);
             $scope.controlGroupSampleSize = Calculator.calculateForBinaryOutcome(a, b, k, ee, ec, d);
             $scope.experimentalGroupSampleSize = $scope.controlGroupSampleSize * k;
+            $scope.totalSampleSize = $scope.controlGroupSampleSize + $scope.experimentalGroupSampleSize;
         };
     });
 
