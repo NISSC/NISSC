@@ -88,12 +88,17 @@
             <strong>Sample size of experimental group: {{experimentalGroupSampleSize | number:0}}</strong>
         </p>
         <p class="text-success">
-            If there is truly no difference between the standard and experimental
-            treatment, then {{controlGroupSampleSize | number:0}} patients are
-            required to be {{values.power * 100 | number:0}}% sure that the lower
-            limit of a one-sided {{values.significanceLevel * 100 | number:0}}%
-            confidence interval will be above the non-inferiority limit of
-            {{values.niMargin}}.
+            When large sample normal inference with equal underlying variance
+            will be used to calculate the confidence interval at the analysis
+            stage, a non-inferiority trial is designed to show that a new
+            treatment is non-inferior to the standard treatment within a
+            non-inferiority margin of {{values.niMargin}} in terms of mean
+            difference. {{totalSampleSize | number:0}} subjects in total (of
+            which {{experimentalGroupSampleSize | number:0}} are in the new
+            treatment group and {{controlGroupSampleSize | number:0}} are in
+            the standard treatment group) are required to achieve
+            {{values.power * 100 | number:0}}% of power at a significance level
+            of {{values.significanceLevel}}.
         </p>
     </div>
 </div>

@@ -75,6 +75,7 @@
             d = parseFloat(values.niMargin);
             $scope.controlGroupSampleSize = Calculator.calculateForContinuousOutcome(a, b, k, me, mc, sd, d);
             $scope.experimentalGroupSampleSize = $scope.controlGroupSampleSize * k;
+            $scope.totalSampleSize = $scope.controlGroupSampleSize + $scope.experimentalGroupSampleSize;
         };
     });
 
