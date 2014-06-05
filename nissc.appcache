@@ -1,0 +1,17 @@
+CACHE MANIFEST
+
+CACHE:
+bower_components/angular/angular.min.js
+bower_components/angular-route/angular-route.min.js
+bower_components/bootstrap/dist/js/bootstrap.min.js
+bower_components/jquery/dist/jquery.min.js
+partials/binary-outcome.html
+partials/continuous-outcome.html
+partials/introduction.html
+partials/survival-outcome.html
+scripts/app.js
+styles/app.css
+styles/bootstrap-flatly.css
+
+NETWORK:
+*
