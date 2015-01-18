@@ -9,6 +9,8 @@
         $locationProvider.html5Mode(false).hashPrefix("!");
         $routeProvider.when("/introduction", {
             templateUrl: "partials/introduction.html"
+        }).when("/about", {
+            templateUrl: "partials/about.html"
         }).when("/continuous", {
             templateUrl: "partials/continuous-outcome.html",
             controller: "ContinuousOutcomeController"

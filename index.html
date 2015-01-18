@@ -22,6 +22,7 @@
                 </div>
                 <div class="collapse navbar-collapse" ng-controller="NavigationController">
                     <ul class="nav navbar-nav">
+                        <li ng-class="{ active: isActive('/about')}"><a href="#!/about">About</a></li>
                         <li ng-class="{ active: isActive('/survival')}"><a href="#!/survival">Survival Outcome</a></li>
                         <li ng-class="{ active: isActive('/continuous')}"><a href="#!/continuous">Continuous Outcome</a></li>
                         <li ng-class="{ active: isActive('/binary')}"><a href="#!/binary">Binary Outcome</a></li>
