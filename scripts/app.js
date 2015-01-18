@@ -119,7 +119,6 @@
 
  // Collapse menu when link is pressed.
     $(document).on("click", ".navbar-collapse.in", function (e) {
-        console.log("Hurz", e);
         if ($(e.target).is("a")) {
             $(this).collapse("hide");
         }
